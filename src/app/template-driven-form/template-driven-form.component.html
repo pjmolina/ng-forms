@@ -2,14 +2,14 @@
     <h1>Professor Form</h1>
     <form (ngSubmit)="onSubmit()" #professorForm="ngForm">
       <div class="form-group">
-        <label for="name">Name</label>
+        <label for="name">Nombre</label>
         <input type="text" class="form-control" id="name"
                  required
                  [(ngModel)]="model.name" name="name"
                  #name="ngModel">
           <div [hidden]="name.valid || name.pristine"
                class="alert alert-danger">
-            Name is required
+            El nombre es requerido
           </div>
       </div>
  
