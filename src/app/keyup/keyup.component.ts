@@ -12,7 +12,12 @@ export class KeyupComponent implements OnInit {
 
   ngOnInit() {
   }
-  onKey(event: any) {
-    this.values += event.target.value + ' | ';
+
+  // onKey(event: any) {  // version no tipada
+  //   this.values += event.target.value + ' | ';
+  // }
+
+  onKey(event: KeyboardEvent) {  // version con tipos
+    this.values += (<HTMLInputElement>event.target).value + ' | ';
   }
 }
