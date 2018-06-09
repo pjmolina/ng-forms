@@ -1,0 +1,12 @@
+<div>
+
+  <input #newPerson 
+         (keyup.enter)="addPerson(newPerson.value)" 
+         (blur)="addPerson(newPerson.value)">
+
+  <button (click)="addPerson(newPerson.value)">Add</button>
+
+  <ul>
+    <li *ngFor="let person of people">{{person}}</li>
+  </ul>
+</div>

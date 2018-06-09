@@ -8,6 +8,7 @@ import { KeyupComponent } from './keyup/keyup.component';
 import { LoopBackComponent } from './loop-back/loop-back.component';
 import { KeyFilteringComponent } from './key-filtering/key-filtering.component';
 import { WithBlurComponent } from './with-blur/with-blur.component';
+import { EnrollPeopleComponent } from './enroll-people/enroll-people.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { WithBlurComponent } from './with-blur/with-blur.component';
     KeyupComponent,
     LoopBackComponent,
     KeyFilteringComponent,
-    WithBlurComponent
+    WithBlurComponent,
+    EnrollPeopleComponent
   ],
   imports: [
     BrowserModule
