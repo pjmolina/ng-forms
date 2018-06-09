@@ -7,6 +7,7 @@ import { ClickMeComponent } from './click-me/click-me.component';
 import { KeyupComponent } from './keyup/keyup.component';
 import { LoopBackComponent } from './loop-back/loop-back.component';
 import { KeyFilteringComponent } from './key-filtering/key-filtering.component';
+import { WithBlurComponent } from './with-blur/with-blur.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { KeyFilteringComponent } from './key-filtering/key-filtering.component';
     ClickMeComponent,
     KeyupComponent,
     LoopBackComponent,
-    KeyFilteringComponent
+    KeyFilteringComponent,
+    WithBlurComponent
   ],
   imports: [
     BrowserModule
