@@ -11,6 +11,8 @@ import { KeyFilteringComponent } from './key-filtering/key-filtering.component';
 import { WithBlurComponent } from './with-blur/with-blur.component';
 import { EnrollPeopleComponent } from './enroll-people/enroll-people.component';
 import { TemplateDrivenFormComponent } from './template-driven-form/template-driven-form.component';
+import { ForbiddenValidatorDirective } from './template-driven-form/ForbiddenValidatorDirective';
+import { OnlyNumericValidatorDirective } from './template-driven-form/OnlyNumericValidatorDirective';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { TemplateDrivenFormComponent } from './template-driven-form/template-dri
     KeyFilteringComponent,
     WithBlurComponent,
     EnrollPeopleComponent,
-    TemplateDrivenFormComponent
+    TemplateDrivenFormComponent,
+    ForbiddenValidatorDirective,
+    OnlyNumericValidatorDirective
   ],
   imports: [
     BrowserModule, FormsModule

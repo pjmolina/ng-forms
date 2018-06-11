@@ -14,6 +14,7 @@ export class KeyupComponent implements OnInit {
   }
 
   // onKey(event: any) {  // version no tipada
+  //   console.log(event.key);
   //   this.values += event.target.value + ' | ';
   // }
 

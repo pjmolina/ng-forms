@@ -1,4 +1,5 @@
 export class Professor {
+
     constructor(
       public id: number,
       public name: string,
@@ -7,4 +8,5 @@ export class Professor {
       public joinedAt: Date,
       public city?: string
     ) {}
+    
   }

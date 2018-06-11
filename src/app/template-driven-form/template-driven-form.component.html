@@ -1,8 +1,9 @@
 <div class="template-driven-form">
     <h1>Professor Form</h1>
     <form (ngSubmit)="onSubmit()" #professorForm="ngForm">
+      {{ model | json }}
       <div class="form-group">
-        <label for="name">Nombre</label>
+        <label for="name" (click)="depura(professorForm)"   >Nombre</label>
         <input type="text" class="form-control" id="name"
                  required
                  [(ngModel)]="model.name" name="name"
@@ -12,10 +13,23 @@
             El nombre es requerido
           </div>
       </div>
- 
+
+      <div class="form-group">
+        <label for="level">Level:</label>
+        <input class="form-control" type="text"  name="level" [(ngModel)]="model.level"
+               appForbiddenName="bob"
+               appOnlyNumeric
+               #level="ngModel"
+        >
+        <div [hidden]="level.valid || level.pristine"
+              class="alert alert-danger">
+          Este campo solo soporta numeros.
+        </div>
+      </div>
+
       <div class="form-group">
         <label for="city">Ciudad</label>
-        <input type="text" class="form-control" id="city">
+        <input type="text" class="form-control" name="city" [(ngModel)]="model.city">
       </div>
 
       <div class="form-group">
@@ -25,7 +39,8 @@
         </select>
       </div>
  
-      <button type="submit" class="btn btn-success">Submit</button>
+      <button [disabled]="!professorForm.valid" 
+              type="submit" class="btn btn-success">Submit</button>
  
     </form>
 </div>
