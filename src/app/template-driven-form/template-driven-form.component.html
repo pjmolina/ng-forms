@@ -16,12 +16,16 @@
 
       <div class="form-group">
         <label for="level">Level:</label>
-        <input class="form-control" type="text"  name="level" [(ngModel)]="model.level"
+        <input class="form-control" type="text" 
+               #spy
+               id="level3"  
+               name="level" [(ngModel)]="model.level"
                appForbiddenName="bob"
                appOnlyNumeric
-               #level="ngModel"
+               #level1="ngModel"
         >
-        <div [hidden]="level.valid || level.pristine"
+        {{ spy.className }} (Quitar para produccion)
+        <div [hidden]="level1.valid || level1.pristine"
               class="alert alert-danger">
           Este campo solo soporta numeros.
         </div>
