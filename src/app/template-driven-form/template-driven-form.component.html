@@ -6,7 +6,7 @@
         <label for="name" (click)="depura(professorForm)"   >Nombre</label>
         <input type="text" class="form-control" id="name"
                  required
-                 [(ngModel)]="model.name" name="name"
+                 [(ngModel)]="model.name" name="name" [ngModelOptions]="{standalone: true}"
                  appForbiddenName="bob"
                  #name="ngModel">
           <div [hidden]="name.valid || name.pristine"
@@ -22,12 +22,12 @@
         <input class="form-control" type="text"
                #spy
                id="level3"
-               name="level" [(ngModel)]="model.level"
+               name="level" [(ngModel)]="model.level" [ngModelOptions]="{standalone: true}"
 
                appOnlyNumeric
                #level1="ngModel"
         >
-        {{ spy.className }} (Quitar para produccion)
+        <!-- {{ spy.className }} (Quitar para produccion) -->
         <div [hidden]="level1.valid || level1.pristine"
               class="alert alert-danger">
           Este campo solo soporta numeros.
@@ -39,12 +39,13 @@
         <input required type="text" class="form-control" name="city" [(ngModel)]="model.city">
       </div>
 
+      <!-- Enlace de clave y etiqueta -->
       <div class="form-group">
         <label for="power">Asignatura</label>
-        <select class="form-control" id="topic" required [value]="model.topic">
+        <select class="form-control" id="topic" required [(ngModel)]="model.topic" [ngModelOptions]="{standalone: true}">
           <option *ngFor="let topic of topics"
-                  [value]="topic.code"
-                  [selected]="topic.selected">{{topic.label}}</option>
+                  [ngValue]="topic.code"
+                  [selected]="topic.code === model.topic">{{topic.label}}</option>
         </select>
       </div>
 

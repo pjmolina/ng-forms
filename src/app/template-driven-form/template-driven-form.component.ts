@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { Professor } from '../domain/professor';
-import { ForbiddenValidatorDirective } from './ForbiddenValidatorDirective';
-import { NG_VALIDATORS } from '@angular/forms';
 
 
 @Component({
