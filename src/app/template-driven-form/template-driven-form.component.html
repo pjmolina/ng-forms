@@ -39,13 +39,33 @@
         <input required type="text" class="form-control" name="city" [(ngModel)]="model.city">
       </div>
 
-      <!-- Enlace de clave y etiqueta -->
+      <!-- 1. Select con enlace de clave y etiqueta -->
       <div class="form-group">
-        <label for="power">Asignatura</label>
+        <label for="power">Asignatura 1</label>
         <select class="form-control" id="topic" required [(ngModel)]="model.topic" [ngModelOptions]="{standalone: true}">
           <option *ngFor="let topic of topics"
                   [ngValue]="topic.code"
                   [selected]="topic.code === model.topic">{{topic.label}}</option>
+        </select>
+      </div>
+
+      <!-- 2. Select con enlace directo: clave=etiqueta -->
+      <div class="form-group">
+        <label for="power">Asignatura 2</label>
+        <select class="form-control" id="topic" required [(ngModel)]="model.topic2" [ngModelOptions]="{standalone: true}">
+          <option *ngFor="let topic of topics"
+                  [ngValue]="topic.label"
+                  [selected]="topic.label === model.topic2">{{topic.label}}</option>
+        </select>
+      </div>
+
+      <!-- 3. Select con enlace: de objecto completo y etiqueta -->
+      <div class="form-group">
+        <label for="power">Asignatura 3</label>
+        <select class="form-control" id="topic" required [(ngModel)]="model.topic3" [ngModelOptions]="{standalone: true}">
+          <option *ngFor="let topic of topics"
+                  [ngValue]="topic"
+                  [selected]="topic === model.topic3">{{topic.label}}</option>
         </select>
       </div>
 

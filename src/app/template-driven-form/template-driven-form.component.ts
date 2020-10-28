@@ -11,15 +11,14 @@ import { Professor } from '../domain/professor';
 export class TemplateDrivenFormComponent {
 
   topics = [
-    {code: 1,  label: 'Computación Cuantica', selected: false },
-    {code: 2, label: 'Nanotecnologia', selected: false },
-    {code: 3, label: 'Drones', selected: false },
-    {code: 4, label: 'Impresion 3D' , selected: false},
-    {code: 5, label: 'Blockchain' , selected: false},
-    {code: 6, label: 'Condensación de Fluzo avanzada', selected: false }
+    {code: 1,  label: 'Computación Cuantica' },
+    {code: 3, label: 'Drones' },
+    {code: 4, label: 'Impresion 3D' },
+    {code: 5, label: 'Blockchain' },
+    {code: 6, label: 'Condensación de Fluzo avanzada' }
   ];
 
-  model = new Professor(18, 'Dr Spin', this.topics[0].code, 1, new Date(Date.now()), 'Teruel');
+  model = new Professor(18, 'Dr Spin', this.topics[0].code, this.topics[1].label, this.topics[2], 1, new Date(Date.now()), 'Teruel');
 
   submitted = false;
 
@@ -29,14 +28,12 @@ export class TemplateDrivenFormComponent {
   }
 
   newProfessor() {
-    this.model = new Professor(42, '', null, 1, new Date(Date.now()), null);
+    this.model = new Professor(42, '',  this.topics[0].code, this.topics[1].label, this.topics[2], 1, new Date(Date.now()), null);
   }
 
   depura(v) {
     console.log(v);
   }
-  setTopic(topic: any) {
-    this.model.topic = topic.code;
-  }
+
 
 }
