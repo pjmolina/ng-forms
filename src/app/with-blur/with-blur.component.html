@@ -1,8 +1,10 @@
 <div class="with-blur">
   Using Blur event (lost-focus):
   <input #box
+        [class]="cssFoco"
         placeholder="type something &amp; press tab"
         (keyup.enter)="update(box.value)"
+        (focus)="onFocus()"
         (blur)="update(box.value)">
   <p>{{value}}</p>
 </div>

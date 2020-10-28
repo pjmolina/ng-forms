@@ -6,8 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./with-blur.component.scss']
 })
 export class WithBlurComponent {
+  cssFoco = 'sin-foco';
 
   value = '';
-  update(value: string) { this.value = value; }
+  update(value: string) {
+    this.value = value;
+    this.cssFoco = 'sin-foco';
+  }
 
+  onFocus() {
+    this.cssFoco = 'con-foco';
+  }
 }

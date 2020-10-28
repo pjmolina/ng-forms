@@ -7,11 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoopBackComponent implements OnInit {
 
-  constructor() { }
+  // constructor() { }
 
   ngOnInit() {
   }
 
-  onKeyPress() {}
+  onKeyPress(e: KeyboardEvent) {}
 
 }

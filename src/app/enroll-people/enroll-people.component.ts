@@ -6,11 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./enroll-people.component.scss']
 })
 export class EnrollPeopleComponent  {
-  people = [];
+  people: string[] = [];
 
-  addPerson(personName: string) {
+  addPerson(input: HTMLInputElement) {
+    const personName = input.value;
     if (personName) {
       this.people.push(personName);
+      input.value = '';
     }
   }
 

@@ -7,6 +7,7 @@
         <input type="text" class="form-control" id="name"
                  required
                  [(ngModel)]="model.name" name="name"
+                 appForbiddenName="bob"
                  #name="ngModel">
           <div [hidden]="name.valid || name.pristine"
                class="alert alert-danger">
@@ -14,13 +15,15 @@
           </div>
       </div>
 
+
+
       <div class="form-group">
         <label for="level">Level:</label>
-        <input class="form-control" type="text" 
+        <input class="form-control" type="text"
                #spy
-               id="level3"  
+               id="level3"
                name="level" [(ngModel)]="model.level"
-               appForbiddenName="bob"
+
                appOnlyNumeric
                #level1="ngModel"
         >
@@ -33,18 +36,20 @@
 
       <div class="form-group">
         <label for="city">Ciudad</label>
-        <input type="text" class="form-control" name="city" [(ngModel)]="model.city">
+        <input required type="text" class="form-control" name="city" [(ngModel)]="model.city">
       </div>
 
       <div class="form-group">
         <label for="power">Asignatura</label>
-        <select class="form-control" id="topic" required>
-          <option *ngFor="let topic of topics" [value]="topic">{{topic}}</option>
+        <select class="form-control" id="topic" required [value]="model.topic">
+          <option *ngFor="let topic of topics"
+                  [value]="topic.code"
+                  [selected]="topic.selected">{{topic.label}}</option>
         </select>
       </div>
- 
-      <button [disabled]="!professorForm.valid" 
+
+      <button [disabled]="!professorForm.valid"
               type="submit" class="btn btn-success">Submit</button>
- 
+
     </form>
 </div>

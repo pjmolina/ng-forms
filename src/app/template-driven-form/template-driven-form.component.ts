@@ -12,10 +12,16 @@ import { NG_VALIDATORS } from '@angular/forms';
 })
 export class TemplateDrivenFormComponent {
 
-  topics = ['Computación Cuantica', 'Nanotecnologia',
-    'Drones', 'Impresion 3D', 'Blockchain', 'Condensación de Fluzo avanzada'];
+  topics = [
+    {code: 1,  label: 'Computación Cuantica', selected: false },
+    {code: 2, label: 'Nanotecnologia', selected: false },
+    {code: 3, label: 'Drones', selected: false },
+    {code: 4, label: 'Impresion 3D' , selected: false},
+    {code: 5, label: 'Blockchain' , selected: false},
+    {code: 6, label: 'Condensación de Fluzo avanzada', selected: false }
+  ];
 
-  model = new Professor(18, 'Dr Spin', this.topics[0], 1, new Date(Date.now()), 'Teruel');
+  model = new Professor(18, 'Dr Spin', this.topics[0].code, 1, new Date(Date.now()), 'Teruel');
 
   submitted = false;
 
@@ -25,11 +31,14 @@ export class TemplateDrivenFormComponent {
   }
 
   newProfessor() {
-    this.model = new Professor(42, '', '', 1, new Date(Date.now()), null);
+    this.model = new Professor(42, '', null, 1, new Date(Date.now()), null);
   }
 
   depura(v) {
     console.log(v);
+  }
+  setTopic(topic: any) {
+    this.model.topic = topic.code;
   }
 
 }
