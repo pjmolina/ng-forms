@@ -1,12 +1,10 @@
 <div #d class="enroll-people">
   Enroll people:
-  <input #n1
-         (keyup.enter)="addPerson(n1)"
-         (blur)="0">
+  <input #n1 (keyup.enter)="addPerson(n1)" (blur)="(0)" />
 
   <button (click)="addPerson(n1)">Add</button>
 
-  <ul #u >
-    <li #l *ngFor="let person of people">{{person}}</li>
+  <ul>
+    <li *ngFor="let person of people">{{ person }}</li>
   </ul>
 </div>

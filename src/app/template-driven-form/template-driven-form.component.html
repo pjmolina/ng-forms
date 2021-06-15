@@ -1,76 +1,125 @@
 <div class="template-driven-form">
-    <h1>Professor Form</h1>
-    <form (ngSubmit)="onSubmit()" #professorForm="ngForm">
-      {{ model | json }}
-      <div class="form-group">
-        <label for="name" (click)="depura(professorForm)"   >Nombre</label>
-        <input type="text" class="form-control" id="name"
-                 required
-                 [(ngModel)]="model.name" name="name" [ngModelOptions]="{standalone: true}"
-                 appForbiddenName="bob"
-                 #name="ngModel">
-          <div [hidden]="name.valid || name.pristine"
-               class="alert alert-danger">
-            El nombre es requerido
-          </div>
-      </div>
-
-
-
-      <div class="form-group">
-        <label for="level">Level:</label>
-        <input class="form-control" type="text"
-               #spy
-               id="level3"
-               name="level" [(ngModel)]="model.level" [ngModelOptions]="{standalone: true}"
-
-               appOnlyNumeric
-               #level1="ngModel"
+  <h1>Professor Form</h1>
+  <form (ngSubmit)="onSubmit()" #professorForm="ngForm">
+    {{ model | json }}
+    <div class="form-group">
+      <label for="name" (click)="depura(professorForm)">Nombre</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        required
+        [(ngModel)]="model.name"
+        name="name"
+        appForbiddenName="bob"
+        #name="ngModel"
+      />
+      <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+        <span *ngIf="nameIsEmpty(name)">El nombre es requerido.</span>
+        <span *ngIf="nameIsForbidden(name)"
+          >El nombre esta prohibido por que contiene a bob.</span
         >
-        <!-- {{ spy.className }} (Quitar para produccion) -->
-        <div [hidden]="level1.valid || level1.pristine"
-              class="alert alert-danger">
-          Este campo solo soporta numeros.
-        </div>
       </div>
+    </div>
 
-      <div class="form-group">
-        <label for="city">Ciudad</label>
-        <input required type="text" class="form-control" name="city" [(ngModel)]="model.city">
+    <div class="form-group">
+      <label for="level">Level:</label>
+      <input
+        class="form-control"
+        type="text"
+        #spy
+        id="level3"
+        name="level"
+        [(ngModel)]="model.level"
+        appOnlyNumeric
+        #level1="ngModel"
+      />
+      <!-- {{ spy.className }} (Quitar para produccion) -->
+      <div
+        [hidden]="level1.valid || level1.pristine"
+        class="alert alert-danger"
+      >
+        Este campo solo soporta numeros.
       </div>
+    </div>
 
-      <!-- 1. Select con enlace de clave y etiqueta -->
-      <div class="form-group">
-        <label for="power">Asignatura 1</label>
-        <select class="form-control" id="topic" required [(ngModel)]="model.topic" [ngModelOptions]="{standalone: true}">
-          <option *ngFor="let topic of topics"
-                  [ngValue]="topic.code"
-                  [selected]="topic.code === model.topic">{{topic.label}}</option>
-        </select>
-      </div>
+    <div class="form-group">
+      <label for="city">Ciudad</label>
+      <input
+        required
+        type="text"
+        class="form-control"
+        name="city"
+        [(ngModel)]="model.city"
+      />
+    </div>
 
-      <!-- 2. Select con enlace directo: clave=etiqueta -->
-      <div class="form-group">
-        <label for="power">Asignatura 2</label>
-        <select class="form-control" id="topic" required [(ngModel)]="model.topic2" [ngModelOptions]="{standalone: true}">
-          <option *ngFor="let topic of topics"
-                  [ngValue]="topic.label"
-                  [selected]="topic.label === model.topic2">{{topic.label}}</option>
-        </select>
-      </div>
+    <!-- 1. Select con enlace de clave y etiqueta -->
+    <div class="form-group">
+      <label for="power">Asignatura 1</label>
+      <select
+        class="form-control"
+        id="topic"
+        required
+        [(ngModel)]="model.topic"
+        [ngModelOptions]="{ standalone: true }"
+      >
+        <option
+          *ngFor="let topic of topics"
+          [ngValue]="topic.code"
+          [selected]="topic.code === model.topic"
+        >
+          {{ topic.label }}
+        </option>
+      </select>
+    </div>
 
-      <!-- 3. Select con enlace: de objecto completo y etiqueta -->
-      <div class="form-group">
-        <label for="power">Asignatura 3</label>
-        <select class="form-control" id="topic" required [(ngModel)]="model.topic3" [ngModelOptions]="{standalone: true}">
-          <option *ngFor="let topic of topics"
-                  [ngValue]="topic"
-                  [selected]="topic === model.topic3">{{topic.label}}</option>
-        </select>
-      </div>
+    <!-- 2. Select con enlace directo: clave=etiqueta -->
+    <div class="form-group">
+      <label for="power">Asignatura 2</label>
+      <select
+        class="form-control"
+        id="topic"
+        required
+        [(ngModel)]="model.topic2"
+        [ngModelOptions]="{ standalone: true }"
+      >
+        <option
+          *ngFor="let topic of topics"
+          [ngValue]="topic.label"
+          [selected]="topic.label === model.topic2"
+        >
+          {{ topic.label }}
+        </option>
+      </select>
+    </div>
 
-      <button [disabled]="!professorForm.valid"
-              type="submit" class="btn btn-success">Submit</button>
+    <!-- 3. Select con enlace: de objecto completo y etiqueta -->
+    <div class="form-group">
+      <label for="power">Asignatura 3</label>
+      <select
+        class="form-control"
+        id="topic"
+        required
+        [(ngModel)]="model.topic3"
+        [ngModelOptions]="{ standalone: true }"
+      >
+        <option
+          *ngFor="let topic of topics"
+          [ngValue]="topic"
+          [selected]="topic === model.topic3"
+        >
+          {{ topic.label }}
+        </option>
+      </select>
+    </div>
 
-    </form>
+    <button
+      [disabled]="!professorForm.valid"
+      type="submit"
+      class="btn btn-success"
+    >
+      Submit
+    </button>
+  </form>
 </div>
