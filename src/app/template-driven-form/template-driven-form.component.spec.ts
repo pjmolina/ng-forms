@@ -1,17 +1,18 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { FormsModule } from "@angular/forms";
 
-import { TemplateDrivenFormComponent } from './template-driven-form.component';
+import { TemplateDrivenFormComponent } from "./template-driven-form.component";
 
-describe('TemplateDrivenFormComponent', () => {
+describe("TemplateDrivenFormComponent", () => {
   let component: TemplateDrivenFormComponent;
   let fixture: ComponentFixture<TemplateDrivenFormComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
-      declarations: [ TemplateDrivenFormComponent ]
-    })
-    .compileComponents();
-  }));
+      declarations: [TemplateDrivenFormComponent],
+      imports: [FormsModule],
+    }).compileComponents();
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(TemplateDrivenFormComponent);
@@ -19,7 +20,7 @@ describe('TemplateDrivenFormComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });
