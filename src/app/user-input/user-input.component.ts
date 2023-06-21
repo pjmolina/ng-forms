@@ -1,15 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'app-user-input',
-  templateUrl: './user-input.component.html',
-  styleUrls: ['./user-input.component.scss']
+  selector: "app-user-input",
+  templateUrl: "./user-input.component.html",
+  styleUrls: ["./user-input.component.scss"],
 })
-export class UserInputComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
-}
+export class UserInputComponent {}
