@@ -36,6 +36,7 @@
         appOnlyNumeric
         #level1="ngModel"
       />
+
       <!-- {{ spy.className }} (Quitar para produccion) -->
       <div
         [hidden]="level1.valid || level1.pristine"
@@ -107,6 +108,7 @@
         [ngModelOptions]="{ standalone: true }"
       >
         <option
+          [class.selected-item]="topic === model.topic3"
           *ngFor="let topic of topics"
           [ngValue]="topic"
           [selected]="topic === model.topic3"

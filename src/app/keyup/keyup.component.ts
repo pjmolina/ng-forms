@@ -14,7 +14,16 @@ export class KeyupComponent {
   // }
 
   onKey(event: KeyboardEvent) {
+    event.preventDefault();
     // version con tipos
     this.values += (<HTMLInputElement>event.target).value + " | ";
+
+    if (event.key === "+" && event.ctrlKey) {
+      this.zoomIn();
+    }
+  }
+
+  zoomIn() {
+    console.log("zoomin");
   }
 }

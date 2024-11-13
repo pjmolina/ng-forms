@@ -56,6 +56,6 @@ export class TemplateDrivenFormComponent {
     return !!name.errors?.required;
   }
   nameIsForbidden(name: FormControl): boolean {
-    return !!name.errors?.forbiddenName;
+    return <boolean>name.errors?.forbiddenName;
   }
 }

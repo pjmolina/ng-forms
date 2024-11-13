@@ -1,12 +1,18 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'app-key-filtering',
-  templateUrl: './key-filtering.component.html',
-  styleUrls: ['./key-filtering.component.scss']
+  selector: "app-key-filtering",
+  templateUrl: "./key-filtering.component.html",
+  styleUrls: ["./key-filtering.component.scss"],
 })
 export class KeyFilteringComponent {
-  value = '';
+  value = "";
 
-  onEnter(value: string) { this.value = value; }
+  onEnter(value: string) {
+    this.value = value;
+  }
+  onEscape(input: HTMLInputElement) {
+    this.value = "";
+    input.value = "";
+  }
 }

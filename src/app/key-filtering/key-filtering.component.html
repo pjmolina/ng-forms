@@ -1,6 +1,6 @@
 <div class="key-filtering">
   Key filtering:
 
-  <input #box (keyup.enter)="onEnter(box.value)" />
+  <input #box (keyup.enter)="onEnter(box.value)" (keyup.esc)="onEscape(box)" />
   <p>{{ value }}</p>
 </div>

@@ -6,5 +6,7 @@ import { Component } from "@angular/core";
   styleUrls: ["./loop-back.component.scss"],
 })
 export class LoopBackComponent {
-  // onKeyPress(e: KeyboardEvent) {}
+  onKeyPress(e: KeyboardEvent) {
+    //nada
+  }
 }
